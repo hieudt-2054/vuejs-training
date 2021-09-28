@@ -1,22 +1,21 @@
+import { HOMEPAGE_ROUTE, AUTHENTICATION_ROUTE } from './../constants/constants';
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
+import Authentication from '../views/Authentication.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: HOMEPAGE_ROUTE,
     name: 'Home',
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: AUTHENTICATION_ROUTE,
+    name: 'Authentication',
+    component: Authentication
   }
 ]
 
