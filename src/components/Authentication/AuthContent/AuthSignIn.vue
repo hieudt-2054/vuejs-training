@@ -1,5 +1,5 @@
 <template>
-    <auth-content class="content">
+    <auth-content class="content" authType="sign-in">
         <template #content>
             <!-- INPUTS -->
             <div class="form_inputs">
@@ -77,13 +77,9 @@ export default Vue.extend({
 <style lang="scss">
     .content {
         .input_container {
-            label {
-                transition: .2s ease-out;
-            }
+            label { transition: .2s ease-out; }
             &:focus-within {
-                label {
-                    color: orange;
-                }
+                label { color: orange; }
             }
         }
         .form_others {

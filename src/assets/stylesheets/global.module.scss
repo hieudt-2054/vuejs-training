@@ -10,23 +10,13 @@ body {
 
 #app {
   @for $i from 1 to 101 {
-  }
-  @for $i from 1 to 101 {
-    .w-#{$i} {
-      width: #{$i} + '%';
-    }
+    .w-#{$i} { width: #{$i} + '%'; }
 
-    .mw-#{$i} {
-      max-width: #{$i} + '%';
-    }
+    .mw-#{$i} { max-width: #{$i} + '%'; }
     
-    .h-#{$i} {
-      height: #{$i} + '%';
-    }
+    .h-#{$i} { height: #{$i} + '%'; }
 
-    .mh-#{$i} {
-      max-height: #{$i} + '%';
-    }
+    .mh-#{$i} { max-height: #{$i} + '%'; }
   }
 }   
 
@@ -42,6 +32,11 @@ body {
   align-items: center;
 }
 
-.c-pointer {
-  cursor: pointer;
+.c-pointer { cursor: pointer; }
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

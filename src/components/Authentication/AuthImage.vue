@@ -36,7 +36,5 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-    .v-image__image {
-        transition: 1.5s ease-in-out;
-    }
+    .v-image__image { transition: 1.5s ease-in-out; }
 </style>

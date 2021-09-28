@@ -4,20 +4,10 @@
             class="d-block mt-2 font-weight-medium"
             :for="input.label">{{ input.label }}</label>
         <v-text-field
-            :id="input.label" 
-            :type="input.type"
+            v-bind="shortenInput"
             v-model="input.value"
-            :placeholder="input.placeholder"
+            :id="input.label" 
             color="blue-grey darken-2"
-            :outlined="input.outlined"
-            :required="input.required"
-            :rules="input.rules"
-            :solo="input.solo"
-            :clearable="input.clearable"
-            :error="input.error"
-            :error-messages="input.errorMessage"
-            :suffix="input.suffix"
-            :append-icon="input.appendIcon"
         />
     </div>
 </template>
@@ -32,6 +22,12 @@ export default Vue.extend({
         input: {
             required: true,
             type: {} as PropType<Input>
+        }
+    },
+    computed: {
+        shortenInput() {
+            const {value, label, ...shortenInput} = this.input
+            return shortenInput
         }
     }
 })

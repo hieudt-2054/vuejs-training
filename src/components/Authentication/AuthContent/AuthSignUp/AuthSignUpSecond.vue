@@ -39,7 +39,11 @@
             class="form_btn w-100 text-subtitle pa-2 mt-3 rounded-lg text-bold" 
             large   
             color="orange lighten-5 "
+<<<<<<< HEAD
             @click="changeStep('first')">Go back</v-btn>
+=======
+            @click="changeSignUpStep('first')">Go back</v-btn>
+>>>>>>> 68a976a... Authentication page - basic UI + validation.
     </div>
 </template>
 
@@ -103,8 +107,8 @@ export default Vue.extend({
         },
     },
     methods: {
-        changeStep(value: string) {
-            this.$emit('changeStep', value)
+        changeSignUpStep(value: string) {
+            this.$emit('changeSignUpStep', value)
         } 
     },
     mixins: [AuthContentMixin]

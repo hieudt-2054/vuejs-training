@@ -32,13 +32,10 @@ export default Vue.extend({
             const form = this.$refs['authForm'] as HTMLFormElement
             form.validate()
             if(this.valid) {
-                if(this.authType === 'sign-in') {
+                if(this.authType === 'sign-in' || this.authType === 'sign-up') {
                     this.$router.replace('/')
                 }
             }
-        },
-        changeAuthType(authType: string) {
-            this.$emit('changeAuthType', authType)
         }
     }
 })
@@ -49,8 +46,6 @@ export default Vue.extend({
         flex-grow: 1;
         margin-top: 2rem;
 
-        &_form {
-            justify-content: space-between;
-        }
+        &_form { justify-content: space-between; }
     } 
 </style>
