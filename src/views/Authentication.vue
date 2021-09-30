@@ -8,7 +8,7 @@
                 <v-container class="content h-70 mw-70 m-auto flex-col-center">
                     <header class="content_header">
                         <h1 class="text-h3 font-weight-bold text-center">
-                            {{header}}
+                            {{ header }}
                         </h1>
                     </header>
                     <transition name="switch" mode="out-in">
@@ -41,11 +41,8 @@ export default Vue.extend({
         }
     },
     computed: {
-        header() {
-            if(this.authType === 'sign-in') {
-                return 'Welcome to PetRescue'
-            }
-            return 'Join us'
+        header():string {
+            return this.authType === 'sign-in' ? 'Welcome to PetRescue' : 'Join us'
         },
         authImg() {
             switch(this.authType) {
@@ -73,22 +70,18 @@ export default Vue.extend({
     }
 
     .switch {
-        &-enter-active {
-            transition: all .4s ease-in-out;
-        }
+        &-enter-active { transition: all .3s ease-in-out; }
 
         &-enter {
             opacity: 0;
-            transform: translateX(3rem);
+            transform: translateX(6rem);
         }
 
-        &-leave-active {
-            transition: all .2s ease;
-        }
+        &-leave-active { transition: all .5s ease; }
 
         &-leave-to {
             opacity: 0;
-            transform: scale(.95)
+            transform: scale(.9)
         }
     }
 </style>

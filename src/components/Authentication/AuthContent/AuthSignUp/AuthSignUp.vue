@@ -1,8 +1,18 @@
 <template>
+<<<<<<< HEAD
     <auth-content>
         <template #content>
             <transition name="switch" mode="out-in">
                 <component v-bind:is="'auth-sign-up-' + step" @changeStep="onChangeStep"/>
+=======
+    <auth-content authType="sign-up">
+        <template #content>
+            <transition name="switch" mode="out-in">
+                <component 
+                    v-bind:is="'auth-sign-up-' + step" 
+                    @changeSignUpStep="onChangeSignUpStep"
+                    @changeAuthType="onChangeAuthType"/>
+>>>>>>> 68a976a... Authentication page - basic UI + validation.
             </transition>
         </template>
     </auth-content>
@@ -25,13 +35,12 @@ export default Vue.extend({
         }
     },
     methods: {
-        onChangeStep(newStep: Step) {
+        onChangeSignUpStep(newStep: Step) {
             this.step = newStep
+        },
+        onChangeAuthType() {
+            this.$emit('changeAuthType', 'sign-in')
         }
     }
 })
 </script>
-
-<style lang="scss">
-
-</style>

@@ -19,7 +19,7 @@
         <!-- REGISTER -->
         <span 
             class="d-block m-auto mt-5 text-center font-weight-medium c-pointer"
-            @click="changeStep('first')">Already have an account?</span>
+            @click="changeAuthType('first')">Already have an account?</span>
     </div>
 </template>
 
@@ -58,21 +58,23 @@ export default Vue.extend({
         }
     },
     methods: {
-        changeStep() {
+        changeAuthType() {
             this.$emit('changeAuthType', 'sign-in')
         },
         formSubmit() {
             const { password, retypedPassword } = this.$store.state.auth
-            // Check if the retyped password is the same as password
+            // Additional check: if the retyped password is the same as password
             if(password.value && retypedPassword.value) {
                 if(password.value !== retypedPassword.value) {
+                    // Manual set error state for retyped pw
                     this.$store.commit( 'setError', {
                         field: 'retypedPassword', 
                         message: 'Retype password does not match'
                     })
                 } else {
+                    // Manual clear error state for retyped pw
                     this.$store.commit('setError', { field: 'retypedPassword' })
-                    this.$emit('changeStep', 'second')
+                    this.$emit('changeSignUpStep', 'second')
                 }
             }
         }
